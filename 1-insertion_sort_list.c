@@ -9,36 +9,40 @@
 */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *tmp = NULL, *ins_node = NULL, *trav = NULL;
+	listint_t *tmp = NULL, *trav = NULL, *curr = NULL;
 
-	tmp = *list;
-	while (tmp && tmp->next)
+	if (*list || list)
+		tmp = *list;
+
+	while (tmp->next)
 	{
-		if ((tmp->n) > (tmp->next->n))
+		if (tmp->n > tmp->next->n)
 		{
-			ins_node = tmp->next;
-			tmp->next = ins_node->next;
-
-			if (ins_node->next != NULL)
-				ins_node->next->prev = tmp;
-
-			trav = *list;
-			while (trav->n <= ins_node->n)
+			trav = tmp->next;
+			while (trav != NULL)
 			{
-				trav = trav->next;
+				trav = trav->prev;
+				if (trav != NULL && (trav->n > trav->next->n))
+				{
+					curr = trav->next;
+					trav->next = curr->next;
+					if (curr->next != NULL)
+						curr->next->prev = trav;
+
+					curr->next = trav;
+					if (trav->prev != NULL)
+						trav->prev->next = curr;
+					curr->prev = trav->prev;
+					trav->prev = curr;
+					if (curr->prev == NULL)
+						*list = curr;
+
+					print_list(*list);
+					trav = curr;
+				}
+				else
+					break;
 			}
-			ins_node->prev = trav->prev;
-
-			if (trav->prev != NULL)
-				trav->prev->next = ins_node;
-
-			ins_node->next = trav;
-			trav->prev = ins_node;
-
-			if (ins_node->prev == NULL)
-				*list = ins_node;
-
-			print_list(*list);
 		}
 		else
 			tmp = tmp->next;
