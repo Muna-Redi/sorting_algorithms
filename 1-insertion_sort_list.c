@@ -11,11 +11,8 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *tmp = NULL, *trav = NULL, *curr = NULL;
 
-	if (*list || list)
+	if (*list != NULL)
 		tmp = *list;
-
-	if (*list == NULL)
-		return;
 
 	while (tmp->next)
 	{
