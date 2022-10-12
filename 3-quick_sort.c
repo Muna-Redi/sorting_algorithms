@@ -20,6 +20,8 @@ void quick_sort(int *array, size_t size)
 * partition - partitions an array using lomuto partition
 * @array: the array to be partitioned
 * @size: size of the array
+* @lo: first index of array
+* @hi: last index of array
 * Return: partion index
 */
 int partition(int *array, int lo, int hi, int size)
@@ -52,7 +54,9 @@ int partition(int *array, int lo, int hi, int size)
 /**
 * sort - sorts the array recursively with lomuto partition
 * @arr: the array tot be sorted
-* @low: first index of the array
+* @lo: first index of the array
+* @high: last index of array
+* @size: size of array
 * Return: void
 */
 void sort(int *arr, int lo, int high, int size)
