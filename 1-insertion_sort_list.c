@@ -13,6 +13,8 @@ void insertion_sort_list(listint_t **list)
 
 	if (*list || list)
 		tmp = *list;
+	else
+		return;
 
 	while (tmp->next)
 	{
