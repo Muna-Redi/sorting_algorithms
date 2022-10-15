@@ -13,7 +13,7 @@ void shell_sort(int *ar, size_t siz)
 
 	size = siz;
 	gap = 1;
-	while (gap <= size/3)
+	while (gap <= size / 3)
 	{
 		gap = (gap * 3 + 1);
 	}
@@ -36,7 +36,7 @@ void shell_sort(int *ar, size_t siz)
 			}
 			i++;
 		}
-		gap = (gap/3);
+		gap = (gap / 3);
 		print_array(ar, siz);
 	}
 }
