@@ -40,3 +40,17 @@ void shell_sort(int *ar, size_t siz)
 		print_array(ar, siz);
 	}
 }
+/**
+* swap - swaps two integers
+* @a: first integer
+* @b: second intrger
+* Return: void
+*/
+void swap(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
