@@ -8,6 +8,8 @@
 
 #include <string.h>
 
+/*###################### STRUCTURES USED  ########################*/
+
 /**
  * struct listint_s - Doubly linked list node
  * @n: Integer stored in the node
@@ -20,6 +22,9 @@ typedef struct listint_s
 	struct listint_s *prev;
 	struct listint_s *next;
 } listint_t;
+
+
+/*######################  FUNCTIONS  ########################*/
 
 void print_list(const listint_t *list);
 
@@ -44,6 +49,8 @@ void sort(int *arr, int low, int high, int size);
 void swap(int *a, int *b);
 
 int partition(int *array, int low, int high, int size);
+
+int get_gap(int size);
 
 
 #endif
