@@ -72,7 +72,6 @@ void cocktail_sort_list(listint_t **list)
 			else
 				trav = trav->prev;
 		}
-		print_list(*list);
 		beg = trav;
 	}
 }
