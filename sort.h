@@ -42,6 +42,8 @@ void quick_sort(int *array, size_t size);
 
 void shell_sort(int *array, size_t size);
 
+void cocktail_sort_list(listint_t **list);
+
 /*###################### HELPER FUNCTIONS ########################*/
 
 void sort(int *arr, int low, int high, int size);
