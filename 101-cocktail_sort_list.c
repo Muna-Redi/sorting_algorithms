@@ -10,22 +10,20 @@
 void cocktail_sort_list(listint_t **list)
 {
 	listint_t *beg, *trav, *tmp;
-	int swap, count, flag, i;
+	int swap;
 
 	if (*list == NULL)
 		return;
 
 	beg = *list;
 	swap = 1;
-	count = 0;
-	i = 0;
 
 	while (swap == 1)
 	{
 		swap = 0;
 		trav = beg;
 
-		while (trav->next)
+		while (trav->next != NULL)
 		{
 			if (trav->n > trav->next->n)
 			{
@@ -37,26 +35,18 @@ void cocktail_sort_list(listint_t **list)
 				tmp->prev = trav->prev;
 
 				if (trav->prev != NULL)
-				{
 					trav->prev->next = tmp;
-					trav->prev = tmp;
-				}
+
+				else if (trav->prev == NULL)
+					*list = tmp;
+
+				trav->prev = tmp;
 				swap = 1;
 				print_list(*list);
-				count++;
 			}
 			else
-			{
 				trav = trav->next;
-				count++;
-			}
-			if (count == flag && (i != 0))
-				break;
 		}
-
-		if (i == 0)
-			flag = count;
-		i = 1;
 
 		while (trav->prev != NULL)
 		{
@@ -78,19 +68,11 @@ void cocktail_sort_list(listint_t **list)
 				}
 				swap = 1;
 				print_list(*list);
-				count--;
 			}
 			else
-			{
 				trav = trav->prev;
-				count--;
-			}
-			if (count == 0)
-			{
-				flag -= 1;
-				break;
-			}
 		}
+		print_list(*list);
 		beg = trav;
 	}
 }
