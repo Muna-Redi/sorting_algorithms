@@ -4,7 +4,7 @@
  * shell_sort - sorts an array of integers in
  * ascending order using shell sort algorithm
  * @ar: array to be sorted
- * @size: size of the array
+ * @siz: size of the array
  * Return: void
  */
 void shell_sort(int *ar, size_t siz)
