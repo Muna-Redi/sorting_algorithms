@@ -12,9 +12,8 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *beg, *trav, *tmp;
 	int swap;
 
-	if (*list == NULL)
+	if (!*list || !list)
 		return;
-
 	beg = *list;
 	swap = 1;
 
